@@ -1,16 +1,11 @@
 # 🚀 GitHub Dev Card Generator
 
-
-<img width="834" height="990" alt="Github Dev Card" src="https://github.com/user-attachments/assets/e03d2500-ef5c-45a4-905a-29989bb490a5" />
-
+<img width="491" height="960" alt="image"  src="https://github.com/user-attachments/assets/bd99b1c0-89d1-4380-8b85-31c511264ef0" />
 
 
 Generate beautiful, shareable developer profile cards from any GitHub username — instantly.
 
 ---
-
----
-
 ## 🌐 Live Deployment
 
 🔗 Frontend Web App  
