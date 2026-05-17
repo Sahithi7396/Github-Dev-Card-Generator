@@ -1,138 +1,258 @@
 # 🚀 GitHub Dev Card Generator
 
-An AI-powered GitHub Dev Card Generator that analyzes public GitHub profiles and creates beautiful developer cards automatically.
 
-Built using:
+<img width="834" height="990" alt="Github Dev Card" src="https://github.com/user-attachments/assets/e03d2500-ef5c-45a4-905a-29989bb490a5" />
 
-- FastAPI
-- React
-- Tailwind CSS
-- Gemini AI
-- MCP Tools
+
+
+Generate beautiful, shareable developer profile cards from any GitHub username — instantly.
+
+---
+
+---
+
+## 🌐 Live Deployment
+
+🔗 Frontend Web App  
+https://github-card-frontend-164750172990.us-central1.run.app/
+
+⚙️ Backend API Service  
+https://github-card-backend-164750172990.us-central1.run.app/
+
+---
+
+## 📖 Overview
+
+A full-stack web app that fetches a GitHub user's public profile data and renders it as a styled HTML developer card.
+
+Cards are:
+- generated dynamically
+- displayed inside the browser
+- shareable via direct link
+- accessible using QR code
+
+The project also integrates:
 - Google ADK
+- Gemini AI
+- MCP tools
+
+for AI-powered developer profile analysis.
 
 ---
 
-# ✨ Features
+## ✨ Features
 
-- 🔍 Fetch public GitHub profile data
-- 🤖 AI-generated developer analysis
-- 🎨 Beautiful developer cards
-- 📊 Top repositories display
-- 🧠 Skill detection
-- 🌙 Modern dark UI
-- ⚡ FastAPI backend
-- 💻 React frontend
+- ⚡ Instant profile card generation
+- 🤖 AI-powered profile analysis
+- 🎨 Dynamic themed developer cards
+- 📊 GitHub statistics visualization
+- 🔗 Shareable card links
+- 📱 QR code support
+- 🧠 MCP tool integration
+- 🚀 FastAPI backend
+- 💻 Modern frontend UI
 
 ---
 
-# 📂 Project Structure
+## ⚡ Workflow
+
+1. User enters GitHub username
+2. Frontend sends request to FastAPI backend
+3. Backend fetches GitHub profile data
+4. Gemini AI analyzes developer profile
+5. MCP tools generate styled HTML card
+6. Card gets saved and served dynamically
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | HTML, CSS, Vanilla JS, Nginx |
+| Backend | Python, FastAPI, Uvicorn |
+| AI/Agent | Google ADK, Gemini 1.5 Flash |
+| MCP | MCP SDK (mcp[fastmcp]) |
+| HTTP | httpx, requests |
+| Infra | Docker, Docker Compose |
+
+---
+
+## 📂 Project Structure
 
 ```bash
 github-card-generator/
-│
 ├── backend/
 │   ├── main.py
-│   ├── mcp_server.py
 │   ├── agent.py
+│   ├── mcp_server.py
 │   ├── requirements.txt
-│   ├── static/
-│   │   └── cards/
-│   └── .venv/
+│   └── Dockerfile
 │
 ├── frontend/
-│   └── index.html
+│   ├── index.html
+│   └── Dockerfile
 │
 ├── docker-compose.yml
-└── README.md
-⚙️ Backend Setup
-1️⃣ Open terminal
+├── .env.example
+└── preview.html
+```
 
-Go to backend folder:
+---
+
+## 🚀 Getting Started
+
+### 📌 Prerequisites
+
+- Docker & Docker Compose
+- GitHub Personal Access Token (optional)
+- Google API Key
+
+---
+
+## ⚙️ Setup
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone <repo-url>
+cd github-card-generator
+```
+
+---
+
+### 2️⃣ Configure Environment Variables
+
+```bash
+cp .env.example .env
+```
+
+Add:
+
+```env
+GITHUB_TOKEN=<your_github_token>
+
+GOOGLE_API_KEY=<your_google_api_key>
+
+GEMINI_MODEL=gemini-2.5-flash
+```
+
+---
+
+### 3️⃣ Start Services
+
+```bash
+docker compose up --build
+```
+
+Open browser:
+
+```bash
+http://localhost
+```
+
+---
+
+## 🖥 Running Backend Locally
+
+```bash
 cd backend
-2️⃣ Create virtual environment
-python -m venv .venv
-3️⃣ Activate virtual environment
-Windows
-.venv\Scripts\activate
-4️⃣ Install dependencies
+
 pip install -r requirements.txt
-5️⃣ Run FastAPI backend
+
 uvicorn main:app --reload --port 8080
+```
 
-Backend runs at:
+---
 
-http://127.0.0.1:8080
+## 📡 API Endpoints
 
-Swagger API docs:
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | / | Health check |
+| POST | /generate | Generate developer card |
+| GET | /card/{username} | Serve generated card |
 
-http://127.0.0.1:8080/docs
-🎨 Frontend Setup
+---
 
-Open frontend using VS Code Live Server.
+## 📬 Example API Request
 
-Frontend URL:
+### POST `/generate`
 
-http://127.0.0.1:5500/frontend/index.html
-🔥 How It Works
-User enters GitHub username
-Frontend sends request to backend
-Backend fetches GitHub profile data
-Gemini AI analyzes profile
-MCP generates developer card
-Card gets saved inside:
-backend/static/cards/
-Generated card becomes accessible through:
-http://localhost:8080/static/cards/<username>.html
+Request:
 
-Example:
+```json
+{
+  "username": "torvalds"
+}
+```
 
-http://localhost:8080/static/cards/Sahithi7396.html
-📡 API Endpoint
-Generate Card
-POST
-/generate?username=<github_username>
+Response:
 
-Example:
+```json
+{
+  "status": "success",
+  "card_url": "/card/torvalds",
+  "card_html": "...",
+  "profile_url": "https://github.com/torvalds"
+}
+```
 
-http://localhost:8080/generate?username=torvalds
-🧠 Tech Stack
-Technology	Purpose
-FastAPI	Backend API
-React	Frontend UI
-Tailwind CSS	Styling
-Gemini AI	Profile Analysis
-MCP	Tool orchestration
-Google ADK	Agent workflow
-GitHub API	Profile data
-🖼 Generated Card Includes
-GitHub avatar
-Developer vibe
-Skills
-Repo statistics
-Top repositories
-Dynamic themes
-🚀 Future Improvements
-Download card as PNG
-Multiple themes
-GitHub OAuth
-Shareable links
-Cloud deployment
-Persistent AI memory
-👩‍💻 Author
+---
 
-Built by Sahithi7396 💙
+## 🧠 MCP Server Tools
+
+| Tool | Description |
+|---|---|
+| scrape_github | Fetch GitHub profile data |
+| analyze_profile | AI-based developer analysis |
+| generate_card_html | Generate styled HTML card |
+| save_card | Save generated card |
+
+---
+
+## 🌱 Environment Variables
+
+| Variable | Description |
+|---|---|
+| GITHUB_TOKEN | GitHub PAT for higher rate limits |
+| GOOGLE_API_KEY | Google Gemini API key |
+| GEMINI_MODEL | Gemini model name |
+| BACKEND_URL | Backend service URL |
+
+---
+
+## 🚀 Future Improvements
+
+- PNG card export
+- Multiple themes
+- Authentication
+- GitHub OAuth
+- Public card gallery
+- Advanced analytics
+- Social sharing integrations
+
+---
+
+## 👩‍💻 Author
+
+Built with ❤️ by Sahithi7396
 
 GitHub:
 https://github.com/Sahithi7396
 
-⭐ Support
+---
+
+## ⭐ Support
 
 If you like this project:
 
-Star the repository ⭐
-Fork the project 🍴
-Share it 🚀
-📜 License
+- Star the repository ⭐
+- Fork the project 🍴
+- Share it 🚀
+
+---
+
+## 📜 License
 
 This project is open-source and free to use.
